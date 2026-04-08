@@ -1,4 +1,4 @@
-EpiWave is a graduation I have been working on.
+EpiWave is a graduation project I have been working on.
 A streamlit app, more educational oriented than clinical. 
 This app is specifically for people who are struggling with chronic neurological disorder known as Epilepsy. 
 It uses an AI tool that analyses EEG files to detect any seizure or near-seizure activity. 
