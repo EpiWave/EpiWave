@@ -389,7 +389,7 @@
             const file = e.target.files[0];
             if (!file) return;
             
-            fileNameDisplay.textContent = `📄 Selected: ${file.name}`;
+            fileNameDisplay.textContent = `Selected: ${file.name}`;
             uploadBox.style.opacity = '0.5';
             processingDiv.classList.remove('hidden');
             resultsDiv.innerHTML = '';
@@ -428,12 +428,12 @@
                 
                 resultsDiv.innerHTML = `
                     <div class="result-card">
-                        <div class="result-title">🌊 CWT Scalogram</div>
+                        <div class="result-title">CWT Scalogram</div>
                         <canvas id="scalogramCanvas" width="800" height="250" class="scalogram-canvas"></canvas>
                         <div class="upload-hint" style="margin-top: 0.5rem;">Time-Frequency representation of EEG signal</div>
                     </div>
                     <div class="result-card">
-                        <div class="result-title">🧠 Seizure Detection Result</div>
+                        <div class="result-title">Seizure Detection Result</div>
                         <div class="prediction ${analysis.class}">
                             ${analysis.icon} ${analysis.prediction}
                         </div>
@@ -445,7 +445,7 @@
                         </div>
                     </div>
                     <div class="button-container" style="margin-top: 1rem;">
-                        <button class="btn" id="newAnalysisBtn">📁 New Analysis</button>
+                        <button class="btn" id="newAnalysisBtn">New Analysis</button>
                     </div>
                 `;
                 
@@ -486,7 +486,6 @@
                 return {
                     class: 'ictal',
                     prediction: 'SEIZURE (ICTAL)',
-                    icon: '🔴',
                     confidence: Math.floor(75 + Math.random() * 20),
                     explanation: 'High-amplitude rhythmic activity detected. Sharp wave discharges and increased synchrony consistent with ictal state.'
                 };
@@ -494,7 +493,6 @@
                 return {
                     class: 'preictal',
                     prediction: 'PRE-SEIZURE (PRE-ICTAL)',
-                    icon: '🟠',
                     confidence: Math.floor(60 + Math.random() * 20),
                     explanation: 'Increased amplitude and frequency activity detected. Patient may be entering a pre-ictal state. Monitor closely.'
                 };
@@ -502,7 +500,6 @@
                 return {
                     class: 'normal',
                     prediction: 'NORMAL (INTER-ICTAL)',
-                    icon: '🟢',
                     confidence: Math.floor(70 + Math.random() * 20),
                     explanation: 'Normal background EEG activity. Alpha rhythm present. No epileptiform discharges detected.'
                 };

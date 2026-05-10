@@ -136,7 +136,7 @@
         EDUCATIONAL PLATFORM • NOT FOR CLINICAL USE
     </div>
 
-    <input type="file" id="fileInput" accept=".edf,.csv,.txt">
+    
 
     <script>
         const canvas = document.getElementById('eegCanvas');
@@ -159,14 +159,14 @@
         function drawEEG() {
             if (!ctx) return;
             
-            // Background
+          
             ctx.fillStyle = '#0a120e';
             ctx.fillRect(0, 0, width, height);
             
             const channelCount = channels.length;
             const channelHeight = height / channelCount;
             
-            // Vertical grid
+           
             ctx.beginPath();
             ctx.strokeStyle = '#1a4a3a';
             ctx.lineWidth = 0.5;
@@ -177,7 +177,7 @@
                 ctx.stroke();
             }
             
-            // Horizontal grid
+            
             for (let i = 1; i < channelCount; i++) {
                 const yPos = i * channelHeight;
                 ctx.beginPath();
@@ -186,7 +186,7 @@
                 ctx.stroke();
             }
             
-            // Channel labels
+            
             ctx.font = '11px "SF Mono", monospace';
             ctx.fillStyle = '#3a9e7a';
             for (let i = 0; i < channelCount; i++) {
@@ -195,7 +195,7 @@
                 ctx.fillText(channels[i], width - 35, yPos + 4);
             }
             
-            // Draw EEG waveforms
+            
             for (let idx = 0; idx < channelCount; idx++) {
                 const yBase = (idx + 0.5) * channelHeight;
                 const amplitude = channelHeight * 0.2;
@@ -212,7 +212,7 @@
                     const t = time * speed;
                     const position = x / width;
                     
-                    // Smooth frequency components
+                    
                     const delta = Math.sin(t * 0.25 + phaseOffset) * 0.35;
                     const theta = Math.sin(t * 0.6 + position * 1.5) * 0.3;
                     const alpha = Math.sin(t * 1.0 + position * 2.5) * 0.45;
@@ -232,7 +232,7 @@
                 ctx.stroke();
             }
             
-            // Time marker
+           
             const markerX = (time * 30) % width;
             ctx.beginPath();
             ctx.strokeStyle = '#3affd0';
@@ -243,7 +243,7 @@
             ctx.stroke();
             ctx.setLineDash([]);
             
-            // Calibration marker
+           
             const calX = width - 70;
             const calY = 25;
             ctx.beginPath();
@@ -258,7 +258,7 @@
             ctx.font = '8px monospace';
             ctx.fillText('50µV', calX + 45, calY + 4);
             
-            // Settings
+            
             ctx.fillStyle = '#2a7a5a';
             ctx.font = '8px monospace';
             ctx.fillText('Sensitivity: 10µV/mm', width - 150, 12);
@@ -273,19 +273,17 @@
         resizeCanvas();
         drawEEG();
         
-        // Button handlers
+       
         const uploadBtn = document.getElementById('uploadBtn');
         const liveBtn = document.getElementById('liveBtn');
-        const fileInput = document.getElementById('fileInput');
-        
-        uploadBtn.addEventListener('click', () => fileInput.click());
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files[0]) {
-                alert(`EEG Study: ${e.target.files[0].name}`);
-                fileInput.value = '';
-            }
+
+        uploadBtn.addEventListener('click', () => {
+        window.location.href = 'upload.html';
         });
-        
+
+        liveBtn.addEventListener('click', () => {
+        window.location.href = 'brain.html';
+        });
         liveBtn.addEventListener('click', () => {
             alert('Live Monitoring: 3D brain visualization coming next');
         });
