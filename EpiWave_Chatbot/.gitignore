@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Project Specific
+chatbot/chroma_db/
+chatbot/data/
+
+# OS/IDE Files
+.DS_Store
+.vscode/
+.idea/
